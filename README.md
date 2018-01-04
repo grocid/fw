@@ -18,7 +18,7 @@ If we try to access Vault via
 $ curl https://yourdomain.com:9999/v1/sys/seal-status
 ```
 
-this will immediately drop the connection. To whitelist our IP, we need to authenicate. This is done as
+this will immediately drop the connection. To whitelist our IP, we need to authenticate. This is done as
 
 ```
 $ curl https://yourdomain.com:8000/auth -d '{"token": "<token from Google Authenticator>"}'
@@ -27,10 +27,10 @@ $ curl https://yourdomain.com:8000/auth -d '{"token": "<token from Google Authen
 
 ```
 
-Now, we are whitelisted!
+Good -- now, we are whitelisted for 7 days!
 
 ```
 $ curl https://yourdomain.com:9999/v1/sys/seal-status
 
-{"request_id":"419d889c-7f7a-d818-45a0-01c73f520d6e","lease_id":"","renewable":false,"lease_duration":0,"data":{"keys":["abs"]},"wrap_info":null,"warnings":null,"auth":null}
+{"request_id":"419d889c-7f7a-d818-45a0-01c73f520d6e","lease_id":"",...
 ```
