@@ -24,7 +24,6 @@ this will immediately drop the connection. To whitelist our IP, we need to authe
 $ curl https://yourdomain.com:8000/auth -d '{"token": "<token from Google Authenticator>"}'
 
 {"authenticated": true}
-
 ```
 
 Good -- now, we are whitelisted for 7 days!
@@ -34,3 +33,7 @@ $ curl https://yourdomain.com:9999/v1/sys/seal-status
 
 {"request_id":"419d889c-7f7a-d818-45a0-01c73f520d6e","lease_id":"",...
 ```
+
+## Threats
+
+It *is* possible to bruteforce the token. There are only 1,000,000 possible tokens. Blacklisting of bruteforce is not a thing in this code, but could be implemented. The simplest measure is to set a small validity window.
